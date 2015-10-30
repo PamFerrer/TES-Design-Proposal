@@ -16,6 +16,23 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.ID)
 
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Position</label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.PositionID.ID, (SelectList)ViewBag.Position, "Select Position", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PositionID.ID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Activity</label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.ActivityID.ID, (SelectList)ViewBag.Activity, "Select Activity", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ActivityID.ID)
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Billable, new { @class = "control-label col-md-2" })
             <div class="col-md-10">

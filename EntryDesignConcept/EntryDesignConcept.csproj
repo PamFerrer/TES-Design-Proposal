@@ -176,6 +176,10 @@
     <Compile Include="AppContext\BillabilityContext.cs" />
     <Compile Include="AppContext\Connection.cs" />
     <Compile Include="AppContext\DataAccessHelper.cs" />
+    <Compile Include="AppContext\OrganizationContext.cs" />
+    <Compile Include="AppContext\TeamContext.cs" />
+    <Compile Include="Controllers\OrganizationController.cs" />
+    <Compile Include="Models\Organization.cs" />
     <Compile Include="AppContext\PositionContext.cs" />
     <Compile Include="AppContext\QueryBuilder.cs" />
     <Compile Include="AppContext\UserContext.cs" />
@@ -185,6 +189,8 @@
     <Compile Include="Controllers\BillabilityController.cs" />
     <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Controllers\PositionController.cs" />
+    <Compile Include="Controllers\SalesOrderController.cs" />
+    <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,6 +199,7 @@
     <Compile Include="Models\Billability.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\Team.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -206,6 +213,12 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\metro-bootstrap.css.map" />
     <Content Include="Views\Entry\_Activities.cshtml" />
+    <Content Include="Views\Organization\Index.cshtml" />
+    <Content Include="Views\Organization\Create.cshtml" />
+    <Content Include="Views\Organization\Edit.cshtml" />
+    <Content Include="Views\Team\Index.cshtml" />
+    <Content Include="Views\Team\Create.cshtml" />
+    <Content Include="Views\Team\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -215,6 +228,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Project\" />
+    <Folder Include="Views\SalesOrder\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

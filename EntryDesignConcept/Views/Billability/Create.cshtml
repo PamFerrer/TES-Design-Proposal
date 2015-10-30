@@ -15,6 +15,23 @@
         <hr />
         @Html.ValidationSummary(true)
 
+       
+        <div class="form-group">
+            <label class="control-label col-md-2">Position</label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.PositionID.ID, (SelectList)ViewBag.Position, "Select Position", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PositionID.ID)
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label class="control-label col-md-2">Activity</label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.ActivityID.ID, (SelectList)ViewBag.Activity, "Select Activity", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ActivityID.ID)
+            </div>
+        </div>      
+
         <div class="form-group">
             @Html.LabelFor(model => model.Billable, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -23,20 +40,6 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PositionID.ID, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PositionID.ID)
-                @Html.ValidationMessageFor(model => model.PositionID.ID)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.ActivityID.ID, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ActivityID.ID)
-                @Html.ValidationMessageFor(model => model.ActivityID.ID)
-            </div>
-        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

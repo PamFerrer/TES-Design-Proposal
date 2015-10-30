@@ -1,10 +1,10 @@
-﻿@model IEnumerable<EntryDesignConcept.Models.Activity>
+﻿@model IEnumerable<EntryDesignConcept.Models.Organization>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Activity List</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -14,7 +14,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-
         <th></th>
     </tr>
 
@@ -24,7 +23,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID })           
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID })          
         </td>
     </tr>
 }

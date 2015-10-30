@@ -16,7 +16,7 @@ namespace EntryDesignConcept
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Activity", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Entry", action = "Index", id = UrlParameter.Optional }
             );
 
           

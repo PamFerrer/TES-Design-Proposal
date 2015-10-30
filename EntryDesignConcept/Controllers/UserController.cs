@@ -27,12 +27,10 @@ namespace EntryDesignConcept.Controllers
             db.Insert(newData);
             return RedirectToAction("Index");
         }
-
         public ActionResult Edit(int id)
         {
             return View(db.GetAllUsers.Single(a => a.ID == id));
         }
-
         [HttpPost]
         public ActionResult Edit(User updatedData, int id)
         {
