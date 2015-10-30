@@ -49,7 +49,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Babawokie\hey\Babawokie\Repository\bin\Debug\MySql.Data.dll</HintPath>
+      <HintPath>bin\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -177,6 +177,7 @@
     <Compile Include="AppContext\Connection.cs" />
     <Compile Include="AppContext\DataAccessHelper.cs" />
     <Compile Include="AppContext\OrganizationContext.cs" />
+    <Compile Include="AppContext\SalesOrderContext.cs" />
     <Compile Include="AppContext\TeamContext.cs" />
     <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="Models\Organization.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Models\Billability.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\SalesOrder.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -219,6 +221,9 @@
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Team\Create.cshtml" />
     <Content Include="Views\Team\Edit.cshtml" />
+    <Content Include="Views\SalesOrder\Index.cshtml" />
+    <Content Include="Views\SalesOrder\Create.cshtml" />
+    <Content Include="Views\SalesOrder\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -229,7 +234,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Project\" />
-    <Folder Include="Views\SalesOrder\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

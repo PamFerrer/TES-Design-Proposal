@@ -24,13 +24,29 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PositionID, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PositionID)
-                @Html.ValidationMessageFor(model => model.PositionID)
+            <label class="control-label col-md-2">Position</label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.PositionID.ID, (SelectList)ViewBag.Position, "Select Position", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PositionID.ID)
             </div>
         </div>
-    
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Business Unit</label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.OrganizationID.ID, (SelectList)ViewBag.BusinessUnit, "Select Business Unit", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.OrganizationID.ID)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2">Team</label>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.TeamID.ID, (SelectList)ViewBag.Team, "Select Team", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TeamID.ID)
+            </div>
+        </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

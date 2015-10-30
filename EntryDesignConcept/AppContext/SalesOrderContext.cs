@@ -7,12 +7,12 @@ using System.Web;
 
 namespace EntryDesignConcept.AppContext
 {
-    public class UserContext : DataAccessHelper
+    public class SalesOrderContext : DataAccessHelper
     {
         #region -- Private Members --
-        private static string _pkField = "userID";
-        private static string _tableName = "tbluser";
-        private PositionContext dbPosition = new PositionContext();
+        private static string _pkField = "id";
+        private static string _tableName = "tblsalesorder";
+        private UserContext dbUser = new UserContext();
         private OrganizationContext dbOrg = new OrganizationContext();
         private TeamContext dbTeam = new TeamContext();
         #endregion
@@ -24,16 +24,17 @@ namespace EntryDesignConcept.AppContext
             get
             {
                 return new List<string> { "name",
-                                          "positionID",
-                                          "businessunitID",
-                                          "teamid"};
+                                          "managerid",
+                                          "businessunitid",
+                                          "teamid",
+                                          "status"};
             }
         }
-        public IEnumerable<User> GetAllUsers
+        public IEnumerable<SalesOrder> GetAllUsers
         {
             get
             {
-                List<User> users = new List<User>();
+                List<SalesOrder> users = new List<SalesOrder>();
                 using (MySqlConnection myConn = MySqlConn)
                 {
                     MySqlCommand cmd = new MySqlCommand
@@ -46,13 +47,15 @@ namespace EntryDesignConcept.AppContext
 
                     while (rd.Read())
                     {
-                        User user = new User();
+                        SalesOrder user = new SalesOrder();
 
                         user.ID = Convert.ToInt32(rd[_pkField]);
-                        user.Fullname = rd["name"].ToString();
-                        user.PositionID = dbPosition.GetAllActivities.Single(p => p.ID == Convert.ToInt32(rd["positionID"]));
-                        user.OrganizationID = dbOrg.Fetch.Single(o => o.ID == Convert.ToInt32(rd["businessunitID"]));
-                        user.TeamID = dbTeam.Fetch.Single(t => t.ID == Convert.ToInt32(rd["teamid"]));
+                        user.Name = rd["name"].ToString();
+                        user.Manager = dbUser.GetAllUsers.Single(u => u.ID == Convert.ToInt32(rd["managerid"]));                      
+                        user.Organization = dbOrg.Fetch.Single(o => o.ID == Convert.ToInt32(rd["businessunitid"]));
+                        user.Team = dbTeam.Fetch.Single(t => t.ID == Convert.ToInt32(rd["teamid"]));
+                        user.Status = Convert.ToBoolean(rd["status"]);
+
                         users.Add(user);
                     }
 
@@ -65,24 +68,27 @@ namespace EntryDesignConcept.AppContext
         #endregion
 
         #region -- Methods --
-        public void Insert(User data)
+        public void Insert(SalesOrder data)
         {
             ExecuteNonQuery(QueryBuilder.Insert(_tableName, TargetFields), SetParams(data));
         }
 
-        public void Update(User data, int id)
+        public void Update(SalesOrder data, int id)
         {
             ExecuteNonQuery(QueryBuilder.Update(_tableName, TargetFields, id, _pkField), SetParams(data));
         }
         // sets parameters for insert/update
-        private Dictionary<string, object> SetParams(User data)
+        private Dictionary<string, object> SetParams(SalesOrder data)
         {
             Dictionary<string, object> result = new Dictionary<string, object>();
 
-            result.Add("@name", data.Fullname);
-            result.Add("@positionID", data.PositionID);
-            result.Add("@businessunitID", data.PositionID);
-            result.Add("@teamid", data.PositionID);
+            result.Add("@name", data.Name);
+            result.Add("@managerid", data.Manager.ID);
+            result.Add("@businessunitid", data.Organization.ID);
+            result.Add("@positionID", data.Team.ID);
+            result.Add("@status", data.Status);
+
+
 
             return result;
         }

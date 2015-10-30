@@ -13,13 +13,12 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Fullname)
-        </th>
+        </th>       
         <th>
-            @Html.DisplayNameFor(model => model.PositionID)
+            Position
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PositionName)
-        </th>
+        <th>BU</th>
+        <th>Team</th>
         <th></th>
     </tr>
 
@@ -27,17 +26,18 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Fullname)
+        </td>      
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionID.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PositionID)
+            @Html.DisplayFor(modelItem => item.OrganizationID.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PositionName)
+            @Html.DisplayFor(modelItem => item.TeamID.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID })            
         </td>
     </tr>
 }

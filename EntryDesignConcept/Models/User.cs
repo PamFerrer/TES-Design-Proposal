@@ -9,7 +9,8 @@ namespace EntryDesignConcept.Models
     {
         public int ID { get; set; }
         public string Fullname { get; set; }
-        public int PositionID { get; set; }
-        public string PositionName { get; set; }
+        public Position PositionID { get; set; }
+        public Organization OrganizationID { get; set; }
+        public Team TeamID { get; set; }
     }
 }
